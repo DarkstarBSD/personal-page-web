@@ -1,0 +1,175 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #313335;
+    font-family: 'Source Code Pro', 'Courier New', monospace;
+    color: #A9B7C6;
+}
+
+.footer-custom {
+    color: #bbbbbb;
+    background-color: #3c3f41;
+    font-family: monospace;
+    border-width: 1px 0 1px;
+    border-top-color: #555555;
+    border-bottom-color: #292b2d;
+}
+
+.nav.nav-tabs > li.dropdown.active.open > a,
+.nav.nav-tabs > li.dropdown.active.open > ul.dropdown-menu a:hover,
+.nav.nav-tabs > li.dropdown.open > a,
+.nav.nav-tabs > li.dropdown.open > ul.dropdown-menu a:hover {
+    background-color: #2f65ca;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #3c3f41;
+}
+
+.main-area {
+    padding-top: 50px;
+    background-color: #292b2d;
+    border-width: 0 1px 0 1px;
+    border-style: dotted;
+    border-color: #555555;
+}
+
+/*navbar customization with help of http://work.smarchal.com/twbscolor/css/3c3f412f65caecf0f1ecf0f11*/
+
+.navbar-default {
+    background-color: #3c3f41;
+    border-width: 1px 0 1px 0;
+    border-top-color: #555555;
+    border-bottom-color: #292b2d;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-text {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu {
+    background-color: #3c3f41;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #ecf0f1;
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ecf0f1;
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #ecf0f1;
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #ecf0f1;
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #2f65ca;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #2f65ca;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #ecf0f1;
+}
+
+.navbar-default .disabled {
+    color: #555555;
+
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ecf0f1;
+        background-color: #2f65ca;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+/*util*/
+.margin-right-0 {
+    margin-right: 0px;
+}
