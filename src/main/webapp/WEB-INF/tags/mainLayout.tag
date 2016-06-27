@@ -105,8 +105,8 @@
                     <li><a href="${to_mail}"><i class="fa fa-envelope" aria-hidden="true"></i>
                         <spring:message
                                 code="main.layout.navbar.item.send.by.mail"/></a></li>
-                    <spring:url value="#" var="pdf"/>
-                    <li><a href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a></li>
+                    <spring:url value="/resources/pdf/1.pdf" var="pdf_file"/>
+                    <li><a href="${pdf_file}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a></li>
                     <spring:url value="#" var="doc"/>
                     <li><a href="#"><i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;MS Word .doc</a></li>
                 </ul>
