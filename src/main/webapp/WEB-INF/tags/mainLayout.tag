@@ -12,16 +12,28 @@
 
     <spring:url value="/resources/css/bootstrap.css" var="bootstrap"/>
     <spring:url value="/resources/css/template.css" var="template_style"/>
+    <spring:url value="/resources/css/jquery.mCustomScrollbar.css" var="custom_scrollbar_css"/>
     <spring:url value="/resources/js/jquery-2.1.4.min.js" var="jquery"/>
     <spring:url value="/resources/js/bootstrap.min.js" var="bootstrap_js"/>
+    <spring:url value="/resources/js/jquery.mCustomScrollbar.concat.min.js" var="custom_scrollbar_js"/>
 
     <!-- CSS -->
     <link href="${bootstrap}" rel="stylesheet"/>
     <link href="${template_style}" rel="stylesheet"/>
+    <link href="${custom_scrollbar_css}" rel="stylesheet"/>
 
     <!-- JS -->
     <script src="${jquery}" type="text/javascript"></script>
     <script src="${bootstrap_js}"></script>
+    <script src="${custom_scrollbar_js}"></script>
+
+    <script>
+        (function ($) {
+            $(window).on("load", function () {
+                $(".main-area").mCustomScrollbar();
+            });
+        })(jQuery);
+    </script>
 
 </head>
 
@@ -37,7 +49,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">&lt;java:ychurinov&gt;</a>
+        <a class="navbar-brand" href="#">
+            &lt;<b><span class="color-purple">java:</span><span class="color-orange">ychurinov</span></b>&gt;
+        </a>
     </div>
 
 
@@ -46,7 +60,8 @@
 
             <!-- Contacts -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="main.layout.navbar.item.contacts"/><b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message
+                        code="main.layout.navbar.item.contacts"/><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
                     <li><a href="${to_mail}">Mail me</a></li>
@@ -61,7 +76,8 @@
 
             <!-- Export CV -->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="main.layout.navbar.item.exportCV"/><b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message
+                        code="main.layout.navbar.item.exportCV"/><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
                     <li><a href="${to_mail}">Send by mail</a></li>
@@ -79,8 +95,8 @@
 
 
 <%--MAIN AREA--%>
-<div class="container">
-    <div class="main-area">
+<div class="main-area">
+    <div class="container content">
         <jsp:doBody/>
     </div>
 </div>
@@ -88,7 +104,9 @@
 <%--FOOTER--%>
 <footer class="navbar navbar-inverse navbar-fixed-bottom navbar-default">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">&lt;/java:ychurinov&gt;</a>
+        <a class="navbar-brand" href="#">
+            &lt;<b><span class="color-purple">/java:</span><span class="color-orange">ychurinov</span></b>&gt;
+        </a>
     </div>
     <!-- localization -->
     <ul id="local" class="nav navbar-nav navbar-right margin-right-0">
