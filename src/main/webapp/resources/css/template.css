@@ -170,6 +170,30 @@ body {
     opacity: 0.6;
 }
 
+/*scrollbar customization*/
+.mCSB_draggerContainer
+{
+    width: 14px;
+    background-color: #3c3f41;
+}
+
+
+.mCSB_scrollToo
+{
+    width: 14px;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail
+{
+    width: 0;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #5a5a5a;
+    width: 10px;
+    border-radius: 0;
+}
+
 /*util*/
 .margin-right-0 {
     margin-right: 0px;
