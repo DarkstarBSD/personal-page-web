@@ -29,19 +29,21 @@ body {
 
 .main-area {
     height: 100%;
-    /*height: calc(100% - 100px);*/
-    /*height: -webkit-calc(100% - 100px);*/
-    /*height: -moz-calc(100% - 100px);*/
     padding: 50px 0;
     overflow: auto;
 }
 
-.content
-{
+.content {
     background-color: #292b2d;
     border-width: 0 1px 0 1px;
     border-style: dotted;
     border-color: #555555;
+}
+
+.section-header {
+    background-color: #323232;
+    color: #9876AA;
+    font-style: italic;
 }
 
 /*navbar customization with help of http://work.smarchal.com/twbscolor/css/3c3f412f65caecf0f1ecf0f11*/
@@ -171,20 +173,16 @@ body {
 }
 
 /*scrollbar customization*/
-.mCSB_draggerContainer
-{
+.mCSB_draggerContainer {
     width: 14px;
     background-color: #3c3f41;
 }
 
-
-.mCSB_scrollToo
-{
+.mCSB_scrollToo {
     width: 14px;
 }
 
-.mCSB_scrollTools .mCSB_draggerRail
-{
+.mCSB_scrollTools .mCSB_draggerRail {
     width: 0;
 }
 
@@ -199,13 +197,34 @@ body {
     margin-right: 0px;
 }
 
-.color-purple
-{
+.color-purple {
     color: #9876AA;
 }
 
-.color-orange
-{
+.color-orange {
     color: #CC7832;
 }
 
+p.indent0 {
+    margin: 0;
+}
+
+p.indent1 {
+    margin: 0;
+    padding-left: 1.8em
+}
+
+p.indent2 {
+    margin: 0;
+    padding-left: 3.6em
+}
+
+p.indent3 {
+    margin: 0;
+    padding-left: 5.4em
+}
+
+p.indent4 {
+    margin: 0;
+    padding-left: 7.2em
+}

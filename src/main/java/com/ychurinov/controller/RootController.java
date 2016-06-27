@@ -12,8 +12,6 @@ public class RootController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView showIndex() {
-        System.out.println("inside root controller");
-        System.out.println();
         return new ModelAndView("index");
     }
 }
