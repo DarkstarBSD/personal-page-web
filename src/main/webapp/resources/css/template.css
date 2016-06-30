@@ -11,6 +11,16 @@ body {
     box-sizing: border-box;
 }
 
+a:link
+{
+    color: #A9B7C6;
+}
+
+a:visited
+{
+    color: #9876AA;
+}
+
 .footer-custom {
     color: #bbbbbb;
     background-color: #3c3f41;
@@ -227,4 +237,12 @@ p.indent3 {
 p.indent4 {
     margin: 0;
     padding-left: 7.2em
+}
+
+.centered-error {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -17,6 +17,7 @@
     <spring:url value="/resources/js/jquery-2.1.4.min.js" var="jquery"/>
     <spring:url value="/resources/js/bootstrap.min.js" var="bootstrap_js"/>
     <spring:url value="/resources/js/jquery.mCustomScrollbar.concat.min.js" var="custom_scrollbar_js"/>
+    <spring:url value="/resources/js/template.js" var="template_js"/>
 
     <!-- CSS -->
     <link href="${bootstrap}" rel="stylesheet"/>
@@ -28,31 +29,7 @@
     <script src="${jquery}" type="text/javascript"></script>
     <script src="${bootstrap_js}"></script>
     <script src="${custom_scrollbar_js}"></script>
-
-    <!-- mCustomScrollbar init -->
-    <script>
-        (function ($) {
-            $(window).on("load", function () {
-                $(".main-area").mCustomScrollbar({
-                    callbacks: {
-                        onScrollStart: function () {
-                            $(".mCSB_dragger_bar").css("background", "#292b2d");
-                        },
-                        onScroll: function () {
-                            $(".mCSB_dragger_bar").css("background", "#5a5a5a");
-                        }
-                    }
-                });
-                $(".mCSB_dragger").hover(
-                        function () {
-                            $(".mCSB_dragger_bar").css("background", "#292b2d");
-                        },
-                        function () {
-                            $(".mCSB_dragger_bar").css("background", "#5a5a5a");
-                        });
-            });
-        })(jQuery);
-    </script>
+    <script src="${template_js}"></script>
 
 </head>
 
@@ -80,7 +57,7 @@
             <!-- Contacts -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message
-                        code="main.layout.navbar.item.contacts"/><b class="caret"></b>&nbsp;</a>
+                        code="main.layout.navbar.item.contacts"/>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
                     <li><a href="${to_mail}"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Mail me</a></li>
@@ -99,7 +76,7 @@
             <!-- Export CV -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message
-                        code="main.layout.navbar.item.export.CV"/><b class="caret"></b>&nbsp;</a>
+                        code="main.layout.navbar.item.export.CV"/>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
                     <li><a href="${to_mail}"><i class="fa fa-envelope" aria-hidden="true"></i>
