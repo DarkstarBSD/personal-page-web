@@ -8,15 +8,15 @@
     </jsp:attribute>
     <jsp:body>
         <div class="row section-header">
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 SUMMARY
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
         </div>
         <div class="row">
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 <p class="indent0">{</p>
 
                 <p class="indent1">Programming languages:</p>
@@ -87,14 +87,18 @@
 
                 <p class="indent0">}</p>
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
         </div>
         <div class="row section-header">
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 EXPERIENCE
             </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"></div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <p class="indent0">{</p>
+
         </div>
     </jsp:body>
 </template:mainLayout>

@@ -94,11 +94,11 @@
 
 
 <%--MAIN AREA--%>
-<div class="main-area">
-    <div class="container content">
+<main class="scrollbar-container">
+    <div class="container">
         <jsp:doBody/>
     </div>
-</div>
+</main>
 
 <%--FOOTER--%>
 <footer class="navbar navbar-inverse navbar-fixed-bottom navbar-default">

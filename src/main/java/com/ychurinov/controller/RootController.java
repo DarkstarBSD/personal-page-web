@@ -9,6 +9,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RootController {
 
+    // Actually this project could be done with no java code at all
+    // This simple work could be done in mvc-config.xml by defining
+    // <mvc:view-controller path="/" view-name="/index"/>
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public ModelAndView showIndex() {

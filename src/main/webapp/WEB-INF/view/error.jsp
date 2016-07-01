@@ -13,9 +13,9 @@
 <div class="alert alert-danger centered-error">
     <h1><strong>404 Not found</strong></h1>
     <p><strong><spring:message code="error.404.msg"/></strong></p>
-    <img src="/resources/images/these_are_not_the_droids.jpg">
+    <img src="${pageContext.request.contextPath}/resources/images/obi_van.jpg">
     <p><strong><spring:message code="error.404.busines"/></strong></p>
-    <p><strong><spring:message code="error.404.move.along"/><a href="/">&nbsp;main page.</a></strong></p>
+    <p><strong><spring:message code="error.404.move.along"/>&nbsp;<a href="/">main page</a>.</strong></p>
 </div>
 </body>
 </html>

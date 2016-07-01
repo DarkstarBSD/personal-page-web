@@ -1,7 +1,7 @@
 (function ($) {
     $(window).on("load", function () {
         <!-- mCustomScrollbar init -->
-        $(".main-area").mCustomScrollbar({
+        $(".scrollbar-container").mCustomScrollbar({
             callbacks: {
                 onScrollStart: function () {
                     $(".mCSB_dragger_bar").css("background", "#292b2d");
