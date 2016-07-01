@@ -28,8 +28,8 @@ public class EmailController {
         Map<String, Object> model = new HashMap<>();
         model.put(EmailServiceImpl.FROM, PropertiesUtil.getProperty("java.mail.username"));
         model.put(EmailServiceImpl.TO, sendTo);
-        model.put("pdf", pdf);
-        model.put("doc", doc);
+        model.put(EmailServiceImpl.PDF_REQUIRED, pdf);
+        model.put(EmailServiceImpl.DOC_REQUIRED, doc);
 
         if (emailServiceImpl.sendEmail("cv.vm", model)) {
             response.setStatus(HttpStatus.OK.value());
