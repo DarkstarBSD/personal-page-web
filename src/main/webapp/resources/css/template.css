@@ -1,28 +1,25 @@
 html {
     overflow: hidden;
     height: 100%;
+    color: #bbbbbb;
 }
 
 body {
     background-color: #313335;
     font-family: 'Source Code Pro', 'Courier New', monospace;
-    color: #A9B7C6;
     height: 100%;
     box-sizing: border-box;
 }
 
-a:link
-{
+a:link {
     color: #A9B7C6;
 }
 
-a:visited
-{
+a:visited {
     color: #9876AA;
 }
 
 .footer-custom {
-    color: #bbbbbb;
     background-color: #3c3f41;
     font-family: monospace;
     border-width: 1px 0 1px;
@@ -44,6 +41,7 @@ main {
 }
 
 .container {
+    color: #A9B7C6;
     background-color: #292b2d;
     border-width: 0 1px 0 1px;
     border-style: dotted;
@@ -174,6 +172,36 @@ main {
         color: #ecf0f1;
         background-color: #2f65ca;
     }
+}
+
+/*modal customizaion*/
+.modal-content {
+    color: #bbbbbb;
+    background-color: #3c3f41;
+}
+
+.modal-header {
+    border-bottom: 1px solid #555555;
+}
+
+.modal-footer {
+    border-top: 1px solid #292b2d;
+}
+
+.btn-primary {
+    background-color: #2f65ca;
+}
+
+.btn-link:hover,
+.btn-link {
+    color: #bbbbbb;
+}
+
+.form-control
+{
+    color: #bbbbbb;
+    border-color: #5c5d5d;
+    background-color: #45494a;
 }
 
 .disabled {

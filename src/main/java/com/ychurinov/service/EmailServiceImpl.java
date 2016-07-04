@@ -21,7 +21,7 @@ public class EmailServiceImpl implements EmailService {
 
     public static final String PDF_REQUIRED = "pdf";
     public static final String DOC_REQUIRED = "doc";
-    public static final String REQUIRED = "true";
+    public static final String REQUIRED = "on";
 
     @Autowired
     private ApplicationContext appContext;

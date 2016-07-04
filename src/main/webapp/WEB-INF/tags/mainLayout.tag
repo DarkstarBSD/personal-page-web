@@ -78,14 +78,19 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message
                         code="main.layout.navbar.item.export.CV"/>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <spring:url value="#" var="to_mail"/>
-                    <li><a href="${to_mail}"><i class="fa fa-envelope" aria-hidden="true"></i>
-                        <spring:message
-                                code="main.layout.navbar.item.send.by.mail"/></a></li>
-                    <spring:url value="/resources/pdf/1.pdf" var="pdf_file"/>
-                    <li><a href="${pdf_file}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a></li>
-                    <spring:url value="#" var="doc"/>
-                    <li><a href="#"><i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;MS Word .doc</a></li>
+                    <li>
+                        <a data-toggle="modal" data-target="#sendByMailModal">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <spring:message code="main.layout.navbar.item.send.by.mail"/></a>
+                    </li>
+                    <li>
+                        <spring:url value="/resources/pdf/1.pdf" var="pdf_file"/>
+                        <a href="${pdf_file}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a>
+                    </li>
+                    <li>
+                        <spring:url value="#" var="doc"/>
+                        <a href="#"><i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;MS Word .doc</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -93,14 +98,14 @@
 </nav>
 
 
-<%--MAIN AREA--%>
+<!-- MAIN AREA -->
 <main class="scrollbar-container">
     <div class="container">
         <jsp:doBody/>
     </div>
 </main>
 
-<%--FOOTER--%>
+<!-- FOOTER -->
 <footer class="navbar navbar-inverse navbar-fixed-bottom navbar-default">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-footer-collapse">
@@ -122,6 +127,44 @@
         </ul>
     </div>
 </footer>
+
+<!-- MODALS -->
+<div class="modal fade" id="sendByMailModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- content -->
+        <div class="modal-content">
+            <form id="sendByMailForm" action="<%=request.getContextPath()%>/email" role="form" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><spring:message code="main.layout.navbar.item.send.by.mail"/></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="sbmEmailContainer" class="form-group has-feedback">
+                        <input id="sbmEmail" type="email" name="sendTo" placeholder="E-mail" class="form-control">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div id="sbmFormatContainer" class="checkbox has-feedback">
+                        <label><input id="sbmPdf" name="pdf" checked type="checkbox"> pdf</label>
+                        <label><input id="sbmDoc" name="doc" type="checkbox"> doc</label>
+                    </div>
+                    <div id="sbmFormatAlert" class="alert alert-danger" style="display: none">
+                        <strong>
+                            <spring:message code="main.layout.modal.send.by.mail.format.alert"/>
+                        </strong>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="sbmSubmit" type="button" class="btn btn-primary" disabled>
+                        <spring:message code="main.layout.modal.send.by.mail.primary.button"/>
+                    </button>
+                    <button type="button" class="btn btn-link" data-dismiss="modal">
+                        <spring:message code="main.layout.modal.send.by.mail.close.button"/>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 

@@ -20,7 +20,7 @@ public class EmailController {
     @Autowired
     private EmailService emailServiceImpl;
 
-    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    @RequestMapping(value = "/email", method = RequestMethod.POST)
     public void email(@RequestParam(value = "sendTo") String sendTo,
                       @RequestParam(value = "pdf", required = false) String pdf,
                       @RequestParam(value = "doc", required = false) String doc,
