@@ -1,8 +1,11 @@
 package com.ychurinov.service;
 
 import org.apache.velocity.app.VelocityEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -15,6 +18,8 @@ import java.util.Map;
 
 @Service
 public class EmailServiceImpl implements EmailService {
+    private static final Logger logger = LoggerFactory.getLogger(EmailServiceImpl.class);
+
     public static final String TO = "to";
     public static final String FROM = "from";
     public static final String SUBJECT = "Yaroslav Churinov Java Developer CV";
@@ -33,11 +38,12 @@ public class EmailServiceImpl implements EmailService {
     private VelocityEngine velocityEngine;
 
     public boolean sendEmail(final String templateName, final Map<String, Object> model) {
+        String sendTo = (String) model.get(TO);
         try {
             MimeMessagePreparator preparator = mimeMessage -> {
                 MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
                 messageHelper.setFrom((String) model.get(FROM));
-                messageHelper.setTo((String) model.get(TO));
+                messageHelper.setTo(sendTo);
                 messageHelper.setSubject(SUBJECT);
                 messageHelper.setSentDate(new Date());
                 if (REQUIRED.equals(model.get(PDF_REQUIRED))) {
@@ -51,8 +57,10 @@ public class EmailServiceImpl implements EmailService {
                 messageHelper.setText(text, true);
             };
             mailSender.send(preparator);
+            logger.info("Mail successfully sent to " + sendTo);
             return true;
-        } catch (Exception e) {
+        } catch (MailException e) {
+            logger.warn("Filed sending mail to " + sendTo);
             e.printStackTrace();
         }
         return false;
