@@ -18,6 +18,7 @@
     <spring:url value="/resources/js/bootstrap.min.js" var="bootstrap_js"/>
     <spring:url value="/resources/js/jquery.mCustomScrollbar.concat.min.js" var="custom_scrollbar_js"/>
     <spring:url value="/resources/js/template.js" var="template_js"/>
+    <spring:url value="/resources/js/stikr.min.js" var="stikr_js"/>
 
     <!-- CSS -->
     <link href="${bootstrap}" rel="stylesheet"/>
@@ -29,6 +30,7 @@
     <script src="${jquery}" type="text/javascript"></script>
     <script src="${bootstrap_js}"></script>
     <script src="${custom_scrollbar_js}"></script>
+    <script src="${stikr_js}"></script>
     <script src="${template_js}"></script>
 
 </head>
@@ -60,9 +62,12 @@
                         code="main.layout.navbar.item.contacts"/>&nbsp;<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
-                    <li><a href="${to_mail}"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Mail me</a></li>
+                    <li>
+                        <a href="${to_mail}"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Mail me</a>
+                    </li>
                     <spring:url value="#" var="fb"/>
-                    <li><a href="${fb}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;Facebook</a>
+                    <li>
+                        <a href="${fb}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;Facebook</a>
                     </li>
                     <spring:url value="https://www.linkedin.com/in/yaroslav-churinov-426261103" var="li"/>
                     <li><a href="${li}" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinedIn</a>
@@ -81,17 +86,21 @@
                     <li>
                         <a data-toggle="modal" data-target="#sendByMailModal">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <spring:message code="main.layout.navbar.item.send.by.mail"/></a>
+                            <spring:message code="main.layout.navbar.item.send.by.mail"/>
+                        </a>
                     </li>
                     <li>
                         <spring:url value="/resources/pdf/1.pdf" var="pdf_file"/>
-                        <a href="${pdf_file}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a>
+                        <a href="${pdf_file}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;PDF</a>
                     </li>
                     <li>
                         <spring:url value="#" var="doc"/>
-                        <a href="#"><i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;MS Word .doc</a>
+                        <a href="#" target="_blank"><i class="fa fa-file-word-o" aria-hidden="true"></i>&nbsp;MS Word .doc</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="https://github.com/DarkstarBSD" target="_blank"><i class="fa fa-github" aria-hidden="true"></i>&nbsp;GitHub</a>
             </li>
         </ul>
     </div>

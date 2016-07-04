@@ -20,7 +20,7 @@
             });
 
         <!-- Send by e-mail form -->
-        $('#sbmSubmit').on('click' ,function () {
+        $('#sbmSubmit').on('click', function () {
             if (sendByEmailFormValidate) {
                 var valuesToSubmit = $("#sendByMailForm").serialize();
                 $("#sendByMailModal").modal('hide');
@@ -29,11 +29,11 @@
                     url: "email",
                     data: valuesToSubmit,
                     type: "POST",
-                    success: function(){
-                        console.log('email sent');
+                    success: function () {
+                        successSticker('Mail with CV has been sent successfully');
                     },
-                    error: function(){
-                        console.log('error sending mail');
+                    error: function () {
+                        failSticker('Error sending CV', false);
                     }
                 })
             }
@@ -77,6 +77,26 @@
             submit.prop('disabled', true);
         }
         return formatSelected && isEmailValid;
+    }
+
+    function successSticker(message) {
+        $.stickr({
+            note: message,
+            className: 'success-sticker',
+            position: {left: 5, top: 55},
+            time:3000,
+            speed:2000
+        });
+    }
+
+    function failSticker(message){
+        $.stickr({
+            note: message,
+            className: 'fail-sticker',
+            position: {left: 5, top: 55},
+            time:3000,
+            speed:2000
+        });
     }
 })(jQuery);
 

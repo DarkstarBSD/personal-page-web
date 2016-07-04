@@ -26,7 +26,7 @@ public class EmailController {
     private EmailService emailServiceImpl;
 
     @RequestMapping(value = "/email", method = RequestMethod.POST)
-    public void email(@RequestParam(value = "sendTo") String sendTo,
+    public void sendCvOnEmail(@RequestParam(value = "sendTo") String sendTo,
                       @RequestParam(value = "pdf", required = false) String pdf,
                       @RequestParam(value = "doc", required = false) String doc,
                       HttpServletResponse response) {
@@ -41,5 +41,11 @@ public class EmailController {
         } else {
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
         }
+    }
+
+    @RequestMapping(value = "/emailMe", method = RequestMethod.POST)
+    public void sendMeEmail(@RequestParam(value = "sendTo") String sendTo)
+    {
+
     }
 }
