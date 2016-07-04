@@ -95,7 +95,8 @@
             className: 'fail-sticker',
             position: {left: 5, top: 55},
             time:3000,
-            speed:2000
+            speed:2000,
+            sticked:true
         });
     }
 })(jQuery);

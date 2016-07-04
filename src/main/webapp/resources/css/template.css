@@ -184,6 +184,15 @@ div#jquery-stickers
     z-index: 999;
 }
 
+div.stick div.exit {
+    background-color: #bbb;
+    width: 16px;
+    height: 16px;
+    float: right;
+    margin: -5px -5px 0 0;
+    cursor: pointer;
+}
+
 @media (min-width: 979px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
