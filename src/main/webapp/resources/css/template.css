@@ -167,6 +167,7 @@ main {
     background-color: #497549;
     border: 1px solid #235e06;
     border-radius: 2px;
+    max-width: 200px;
 }
 
 .fail-sticker{
@@ -175,6 +176,7 @@ main {
     background-color: #C55450;
     border: 1px solid #532B2E;
     border-radius: 2px;
+    max-width: 200px;
 }
 
 div#jquery-stickers
