@@ -185,7 +185,7 @@ div#jquery-stickers
 }
 
 div.stick div.exit {
-    background-color: #bbb;
+    background-image: url("../images/close.png");
     width: 16px;
     height: 16px;
     float: right;
