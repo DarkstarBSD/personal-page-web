@@ -29,11 +29,11 @@
                     url: "email",
                     data: valuesToSubmit,
                     type: "POST",
-                    success: function () {
-                        successSticker('Mail with CV has been sent successfully');
+                    success: function (data) {
+                        successSticker(data);
                     },
-                    error: function () {
-                        failSticker('Error sending CV', false);
+                    error: function (data) {
+                        failSticker(data.responseJSON);
                     }
                 })
             }
@@ -83,20 +83,20 @@
         $.stickr({
             note: message,
             className: 'success-sticker',
-            position: {left: 5, top: 55},
-            time:3000,
-            speed:2000
+            position: {left: 0, top: 50},
+            time: 3000,
+            speed: 2000
         });
     }
 
-    function failSticker(message){
+    function failSticker(message) {
         $.stickr({
             note: message,
             className: 'fail-sticker',
-            position: {left: 5, top: 55},
-            time:3000,
-            speed:2000,
-            sticked:true
+            position: {left: 0, top: 50},
+            time: 3000,
+            speed: 2000,
+            sticked: true
         });
     }
 })(jQuery);

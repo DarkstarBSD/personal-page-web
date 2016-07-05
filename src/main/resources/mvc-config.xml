@@ -16,7 +16,16 @@
                            http://www.springframework.org/schema/tx
            				   http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean id="jacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="prettyPrint" value="true" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <mvc:view-controller path="/" view-name="/index"/>
+    <mvc:view-controller path="/index.html" view-name="/index"/>
 
     <context:component-scan base-package="com.ychurinov.controller"/>
 

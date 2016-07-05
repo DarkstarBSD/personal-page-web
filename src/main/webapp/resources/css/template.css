@@ -54,8 +54,41 @@ main {
     font-style: italic;
 }
 
-/*navbar customization with help of http://work.smarchal.com/twbscolor/css/3c3f412f65caecf0f1ecf0f11*/
+/*stickers customization*/
+.stick{
+    text-align: justify;
+    color: #ecf0f1;
+    opacity: 0.75;
+    margin: 5px;
+    padding: 5px;
+    max-width: 250px;
+    border-radius: 2px;
+}
 
+.success-sticker{
+    background-color: #497549;
+    border: 1px solid #235e06;
+}
+
+.fail-sticker{
+    background-color: #C55450;
+    border: 1px solid #532B2E;
+}
+
+div#jquery-stickers
+{
+    z-index: 999;
+}
+
+div.stick div.exit {
+    background-image: url("../images/close.png");
+    width: 16px;
+    height: 16px;
+    float: right;
+    cursor: pointer;
+}
+
+/*navbar customization with help of http://work.smarchal.com/twbscolor/css/3c3f412f65caecf0f1ecf0f11*/
 .navbar-default {
     background-color: #3c3f41;
     border-width: 1px 0 1px 0;
@@ -160,38 +193,6 @@ main {
     font-size: 32px;
 }
 
-/*stickers customization*/
-.success-sticker{
-    color: #ecf0f1;
-    opacity: 0.75;
-    background-color: #497549;
-    border: 1px solid #235e06;
-    border-radius: 2px;
-    max-width: 200px;
-}
-
-.fail-sticker{
-    color: #ecf0f1;
-    opacity: 0.75;
-    background-color: #C55450;
-    border: 1px solid #532B2E;
-    border-radius: 2px;
-    max-width: 200px;
-}
-
-div#jquery-stickers
-{
-    z-index: 999;
-}
-
-div.stick div.exit {
-    background-image: url("../images/close.png");
-    width: 16px;
-    height: 16px;
-    float: right;
-    margin: -5px -5px 0 0;
-    cursor: pointer;
-}
 
 @media (min-width: 979px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
