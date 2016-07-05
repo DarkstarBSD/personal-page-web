@@ -8,6 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * Util bean that stores properties from properties files defined in application-context.xml
+ * That allows to access loaded properties values from java code.
+ *
+ * @author ychurinov
+ */
 public class PropertiesUtil extends PropertyPlaceholderConfigurer {
 
     private static Map<String, String> propertiesMap;
@@ -32,6 +38,12 @@ public class PropertiesUtil extends PropertyPlaceholderConfigurer {
         }
     }
 
+    /**
+     * Main method that allows to read properties values
+     *
+     * @param name - property name defined in .properties file
+     * @return property value
+     */
     public static String getProperty(String name) {
         return propertiesMap.get(name);
     }

@@ -1,10 +1,13 @@
 package com.ychurinov.service;
 
+import com.ychurinov.util.MessagesProvider;
 import org.apache.velocity.app.VelocityEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -12,6 +15,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 
+import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Map;
@@ -28,6 +32,9 @@ public class EmailServiceImpl implements EmailService {
     public static final String DOC_REQUIRED = "doc";
     public static final String REQUIRED = "on";
 
+    @Resource(name = "messagesProvider")
+    private MessagesProvider messagesProvider;
+
     @Autowired
     private ApplicationContext appContext;
 
@@ -39,6 +46,7 @@ public class EmailServiceImpl implements EmailService {
 
     public boolean sendEmail(final String templateName, final Map<String, Object> model) {
         String sendTo = (String) model.get(TO);
+        model.put("test_message", messagesProvider.getMessage("cv.vm.test"));
         try {
             MimeMessagePreparator preparator = mimeMessage -> {
                 MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -60,8 +68,7 @@ public class EmailServiceImpl implements EmailService {
             logger.info("Mail successfully sent to " + sendTo);
             return true;
         } catch (MailException e) {
-            logger.warn("Filed sending mail to " + sendTo);
-            e.printStackTrace();
+            logger.warn("Filed sending mail to " + sendTo, e);
         }
         return false;
     }

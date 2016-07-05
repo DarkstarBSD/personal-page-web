@@ -8,6 +8,7 @@
     <context:property-placeholder location="classpath:application.properties" />
     <context:component-scan base-package="com.ychurinov.service"/>
 
+    <!-- Util bean that provides access to properties values from java code -->
     <bean id="placeholderConfigMM" class="com.ychurinov.util.PropertiesUtil">
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="locations">
@@ -15,6 +16,10 @@
                 <value>classpath:application.properties</value>
             </list>
         </property>
+    </bean>
+    
+    <bean id="messagesProvider" class="com.ychurinov.util.MessagesProvider">
+        <property name="messageSource" ref="messageSource"/>
     </bean>
 
     <!-- Velocity Email Template Config Bean -->
@@ -24,6 +29,7 @@
 
     <!-- Java Mail Sender -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="defaultEncoding" value="UTF-8"/>
         <property name="username" value="${java.mail.username}"/>
         <property name="password" value="${java.mail.password}"/>
         <property name="port" value="${java.mail.port}"/>
@@ -36,6 +42,14 @@
                 <prop key="mail.smtp.host">${java.mail.host}</prop>
             </props>
         </property>
+    </bean>
+
+    <!-- MessageSource ReloadableResourceBundleMessageSource configuration -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="classpath:lang"/>
+        <property name="cacheSeconds" value="1"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="commonMessages" value="lang_en.properties"/>
     </bean>
 
 </beans>
