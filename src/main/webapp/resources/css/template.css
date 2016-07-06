@@ -88,6 +88,10 @@ div.stick div.exit {
     cursor: pointer;
 }
 
+i.fa-github{
+    font-size: 18px;
+}
+
 /*navbar customization with help of http://work.smarchal.com/twbscolor/css/3c3f412f65caecf0f1ecf0f11*/
 .navbar-default {
     background-color: #3c3f41;
@@ -188,9 +192,9 @@ div.stick div.exit {
     color: #555555;
 }
 
-.nav-icon
-{
-    font-size: 32px;
+.navbar-default ul.navbar-nav > li:hover {
+    color: #ecf0f1;
+    background-color: #2f65ca;
 }
 
 
@@ -241,8 +245,20 @@ div.stick div.exit {
     color: #bbbbbb;
 }
 
-.btn.disabled, .btn[disabled] {
+.btn.disabled,
+.btn[disabled],
+.btn[disabled]:hover {
     cursor: default;
+    background-color: #3c3f41;
+    border: 1px solid #5c5d5d;
+}
+
+
+.alert {
+    color: #ecf0f1;
+    padding: 5px;
+    background-color: #C55450;
+    border: 1px solid #532B2E;
 }
 
 .form-control

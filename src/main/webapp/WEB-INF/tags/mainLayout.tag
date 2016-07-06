@@ -158,6 +158,7 @@
                     </div>
                     <div id="sbmFormatAlert" class="alert alert-danger" style="display: none">
                         <strong>
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                             <spring:message code="main.layout.modal.send.by.mail.format.alert"/>
                         </strong>
                     </div>

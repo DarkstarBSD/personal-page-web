@@ -46,9 +46,6 @@
                         <p style="font-family:monospace; font-size:13px; color:#A9B7C6; line-height:1.4em;">
                             <span style="color:#ff0000;">– </span> И лучше всего его делать именно таким образом
                         </p>
-                        <p style="font-family:monospace; font-size:13px; color:#A9B7C6; line-height:1.4em;">
-                            <span style="color:#ff0000;">– </span> $test_message
-                        </p>
                     </td>
                 </tr>
             </table>

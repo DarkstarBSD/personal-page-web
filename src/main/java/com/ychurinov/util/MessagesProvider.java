@@ -4,7 +4,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 /**
- * Simple MessageSource wrapper that provides simpler way of getting localized messages from java code
+ * Simple MessageSource wrapper that provides simpler way of getting localized messages in java code
  */
 public class MessagesProvider {
     private MessageSource messageSource;

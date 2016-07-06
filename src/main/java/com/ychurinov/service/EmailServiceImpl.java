@@ -46,7 +46,6 @@ public class EmailServiceImpl implements EmailService {
 
     public boolean sendEmail(final String templateName, final Map<String, Object> model) {
         String sendTo = (String) model.get(TO);
-        model.put("test_message", messagesProvider.getMessage("cv.vm.test"));
         try {
             MimeMessagePreparator preparator = mimeMessage -> {
                 MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);

@@ -48,7 +48,7 @@ public class EmailController {
             response.setStatus(HttpStatus.OK.value());
             return messagesProvider.getMessage("main.layout.sticker.success.mail.CV.message.start")
                     + ' '
-                    + sendTo.replaceAll("-","&#8209")
+                    + sendTo.replaceAll("-","&#8209") //dashes need to be replaced because browser can brake line when meets it
                     + ' '
                     + messagesProvider.getMessage("main.layout.sticker.success.mail.CV.message.end");
         } else {
@@ -61,10 +61,15 @@ public class EmailController {
         }
     }
 
-    @RequestMapping(value = "/emailMe", method = RequestMethod.POST)
+    @RequestMapping(value = "/messageMe", method = RequestMethod.POST)
     public void sendMeEmail(@RequestParam(value = "subject") String sendTo,
                             @RequestParam(value = "name") String name,
-                            @RequestParam(value = "message") String message) {
+                            @RequestParam(value = "message") String message,
+                            HttpServletResponse response,
+                            HttpServletRequest request) {
+        logger.debug("Processing request: "
+                + request.getRequestURL()
+                + (request.getQueryString() != null ? ('?' + request.getQueryString()) : ""));
 
     }
 }
