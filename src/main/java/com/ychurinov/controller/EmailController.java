@@ -38,17 +38,18 @@ public class EmailController {
         logger.debug("Processing request: "
                 + request.getRequestURL()
                 + (request.getQueryString() != null ? ('?' + request.getQueryString()) : ""));
+        
         Map<String, Object> model = new HashMap<>();
-        model.put(EmailServiceImpl.FROM, PropertiesUtil.getProperty("java.mail.username"));
+
         model.put(EmailServiceImpl.TO, sendTo);
         model.put(EmailServiceImpl.PDF_REQUIRED, pdf);
         model.put(EmailServiceImpl.DOC_REQUIRED, doc);
 
-        if (emailServiceImpl.sendEmail("cv.vm", model)) {
+        if (emailServiceImpl.sendCvOnEmail("cv.vm", model)) {
             response.setStatus(HttpStatus.OK.value());
             return messagesProvider.getMessage("main.layout.sticker.success.mail.CV.message.start")
                     + ' '
-                    + sendTo.replaceAll("-","&#8209") //dashes need to be replaced because browser can brake line when meets it
+                    + sendTo.replaceAll("-","&#8209") //dashes need to be replaced because browser can brake line when meets it at the end of line
                     + ' '
                     + messagesProvider.getMessage("main.layout.sticker.success.mail.CV.message.end");
         } else {
@@ -62,14 +63,24 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/messageMe", method = RequestMethod.POST)
-    public void sendMeEmail(@RequestParam(value = "subject") String sendTo,
-                            @RequestParam(value = "name") String name,
-                            @RequestParam(value = "message") String message,
-                            HttpServletResponse response,
-                            HttpServletRequest request) {
+    public String sendMeEmail(@RequestParam(value = "name") String name,
+                              @RequestParam(value = "message", required = false) String message,
+                              HttpServletResponse response,
+                              HttpServletRequest request) {
         logger.debug("Processing request: "
                 + request.getRequestURL()
                 + (request.getQueryString() != null ? ('?' + request.getQueryString()) : ""));
+        Map<String, Object> model = new HashMap<>();
 
+        model.put(EmailServiceImpl.NAME, name);
+        model.put(EmailServiceImpl.MESSAGE, message);
+
+        if (emailServiceImpl.sendMessageOnEmail("msg.vm", model)) {
+            response.setStatus(HttpStatus.OK.value());
+            return messagesProvider.getMessage("main.layout.sticker.success.message");
+        } else {
+            response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
+            return messagesProvider.getMessage("main.layout.sticker.fail.message");
+        }
     }
 }

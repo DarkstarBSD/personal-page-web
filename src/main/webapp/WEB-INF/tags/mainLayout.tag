@@ -63,7 +63,10 @@
                 <ul class="dropdown-menu">
                     <spring:url value="#" var="to_mail"/>
                     <li>
-                        <a href="${to_mail}"><i class="fa fa-envelope-o" aria-hidden="true"></i>&nbsp;Mail me</a>
+                        <a data-toggle="modal" data-target="#sendMessageModal" href="${to_mail}">
+                            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+                            <spring:message code="main.layout.navbar.item.send.message"/>
+                        </a>
                     </li>
                     <spring:url value="#" var="fb"/>
                     <li>
@@ -138,6 +141,8 @@
 </footer>
 
 <!-- MODALS -->
+
+<!--send CV on email-->
 <div class="modal fade" id="sendByMailModal" role="dialog">
     <div class="modal-dialog">
         <!-- content -->
@@ -165,6 +170,39 @@
                 </div>
                 <div class="modal-footer">
                     <button id="sbmSubmit" type="button" class="btn btn-primary" disabled>
+                        <spring:message code="main.layout.modal.send.by.mail.primary.button"/>
+                    </button>
+                    <button type="button" class="btn btn-link" data-dismiss="modal">
+                        <spring:message code="main.layout.modal.send.by.mail.close.button"/>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--send message-->
+<div class="modal fade" id="sendMessageModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- content -->
+        <div class="modal-content">
+            <form id="sendMessageForm" action="<%=request.getContextPath()%>/messageMe" role="form" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><spring:message code="main.layout.navbar.item.send.message"/></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="smNameContainer" class="form-group has-feedback">
+                        <input id="smName" type="text" name="name" placeholder="Your name (Company)" class="form-control">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div id="smMessageContainer" class="form-group has-feedback">
+                        <textarea id="smMessage" name="message" placeholder="Your message" rows="5" class="form-control"></textarea>
+                        <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="smSubmit" type="button" class="btn btn-primary" disabled>
                         <spring:message code="main.layout.modal.send.by.mail.primary.button"/>
                     </button>
                     <button type="button" class="btn btn-link" data-dismiss="modal">

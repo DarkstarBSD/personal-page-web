@@ -21,26 +21,43 @@
 
         <!-- Send by e-mail form -->
         $('#sbmSubmit').on('click', function () {
-            if (sendByEmailFormValidate) {
-                var valuesToSubmit = $("#sendByMailForm").serialize();
-                $("#sendByMailModal").modal('hide');
+            var valuesToSubmit = $("#sendByMailForm").serialize();
+            $("#sendByMailModal").modal('hide');
 
-                $.ajax({
-                    url: "email",
-                    data: valuesToSubmit,
-                    type: "POST",
-                    success: function (data) {
-                        successSticker(data);
-                    },
-                    error: function (data) {
-                        failSticker(data.responseJSON);
-                    }
-                })
-            }
+            $.ajax({
+                url: "email",
+                data: valuesToSubmit,
+                type: "POST",
+                success: function (data) {
+                    successSticker(data);
+                },
+                error: function (data) {
+                    failSticker(data.responseJSON);
+                }
+            });
+            return false;
+        });
+
+        <!-- Send message form -->
+        $('#smSubmit').on('click', function () {
+            var valuesToSubmit = $("#sendMessageForm").serialize();
+            $("#sendMessageModal").modal('hide');
+            $.ajax({
+                url: "messageMe",
+                data: valuesToSubmit,
+                type: "POST",
+                success: function (data) {
+                    successSticker(data);
+                },
+                error: function (data) {
+                    failSticker(data.responseJSON);
+                }
+            });
             return false;
         });
 
         $('#sendByMailForm').find('input').on('change  paste keyup', sendByEmailFormValidate);
+        $('#sendMessageForm').find('#smName').on('change  paste keyup', sendMessageFormValidate);
     });
 
     function isEmail(email) {
@@ -77,6 +94,23 @@
             submit.prop('disabled', true);
         }
         return formatSelected && isEmailValid;
+    }
+
+    function sendMessageFormValidate() {
+        var smNameContainer = $('#smNameContainer');
+        var submit = $('#smSubmit');
+
+        if (smNameContainer.find("#smName").val().length > 0) {
+            smNameContainer.addClass('has-success');
+            smNameContainer.removeClass('has-error');
+            submit.prop('disabled', false);
+            return true;
+        } else {
+            smNameContainer.addClass('has-error');
+            smNameContainer.removeClass('has-success');
+            submit.prop('disabled', true);
+            return false;
+        }
     }
 
     function successSticker(message) {

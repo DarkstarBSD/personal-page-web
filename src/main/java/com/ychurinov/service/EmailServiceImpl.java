@@ -1,6 +1,7 @@
 package com.ychurinov.service;
 
 import com.ychurinov.util.MessagesProvider;
+import com.ychurinov.util.PropertiesUtil;
 import org.apache.velocity.app.VelocityEngine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,9 @@ public class EmailServiceImpl implements EmailService {
     public static final String DOC_REQUIRED = "doc";
     public static final String REQUIRED = "on";
 
+    public static final String NAME="name";
+    public static final String MESSAGE="message";
+
     @Resource(name = "messagesProvider")
     private MessagesProvider messagesProvider;
 
@@ -44,12 +48,12 @@ public class EmailServiceImpl implements EmailService {
     @Autowired
     private VelocityEngine velocityEngine;
 
-    public boolean sendEmail(final String templateName, final Map<String, Object> model) {
+    public boolean sendCvOnEmail(final String templateName, final Map<String, Object> model) {
         String sendTo = (String) model.get(TO);
         try {
             MimeMessagePreparator preparator = mimeMessage -> {
                 MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
-                messageHelper.setFrom((String) model.get(FROM));
+                messageHelper.setFrom(PropertiesUtil.getProperty("java.mail.username"));
                 messageHelper.setTo(sendTo);
                 messageHelper.setSubject(SUBJECT);
                 messageHelper.setSentDate(new Date());
@@ -68,6 +72,28 @@ public class EmailServiceImpl implements EmailService {
             return true;
         } catch (MailException e) {
             logger.warn("Filed sending mail to " + sendTo, e);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean sendMessageOnEmail(String templateName, Map<String, Object> model) {
+        try {
+            MimeMessagePreparator preparator = mimeMessage -> {
+                MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
+                messageHelper.setFrom(PropertiesUtil.getProperty("java.mail.username"));
+                messageHelper.setTo(PropertiesUtil.getProperty("java.mail.username"));
+                messageHelper.setSubject("My-personal-page: message from - " + model.get(NAME));
+                messageHelper.setSentDate(new Date());
+                String text = VelocityEngineUtils.mergeTemplateIntoString(velocityEngine, templateName, "UTF-8", model);
+                messageHelper.setText(text, true);
+            };
+            mailSender.send(preparator);
+            logger.info("Message successfully sent.");
+            return true;
+        } catch (MailException e)
+        {
+            logger.warn("Filed to send message.", e);
         }
         return false;
     }

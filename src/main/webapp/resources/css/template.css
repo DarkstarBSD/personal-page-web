@@ -40,6 +40,10 @@ main {
     overflow: auto;
 }
 
+textarea {
+    resize: vertical;
+}
+
 .container {
     color: #A9B7C6;
     background-color: #292b2d;
@@ -55,8 +59,7 @@ main {
 }
 
 /*stickers customization*/
-.stick{
-    text-align: justify;
+.stick {
     color: #ecf0f1;
     opacity: 0.75;
     margin: 5px;
@@ -65,18 +68,17 @@ main {
     border-radius: 2px;
 }
 
-.success-sticker{
+.success-sticker {
     background-color: #497549;
     border: 1px solid #235e06;
 }
 
-.fail-sticker{
+.fail-sticker {
     background-color: #C55450;
     border: 1px solid #532B2E;
 }
 
-div#jquery-stickers
-{
+div#jquery-stickers {
     z-index: 999;
 }
 
@@ -89,7 +91,7 @@ div.stick div.exit {
     cursor: pointer;
 }
 
-i.fa-github{
+i.fa-github {
     font-size: 18px;
 }
 
@@ -198,7 +200,6 @@ i.fa-github{
     background-color: #2f65ca;
 }
 
-
 @media (min-width: 979px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
@@ -254,7 +255,6 @@ i.fa-github{
     border: 1px solid #5c5d5d;
 }
 
-
 .alert {
     color: #ecf0f1;
     padding: 5px;
@@ -262,8 +262,7 @@ i.fa-github{
     border: 1px solid #532B2E;
 }
 
-.form-control
-{
+.form-control {
     color: #bbbbbb;
     border-color: #5c5d5d;
     background-color: #45494a;
