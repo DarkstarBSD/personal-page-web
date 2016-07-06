@@ -13,6 +13,20 @@
         </encoder>
     </appender>
 
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${CATALINA_HOME}/logs/mylog.log</File>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/my.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d %-5level [%thread] %logger{0}: %msg%n</Pattern>
+        </layout>
+
+    </appender>
+
     <logger name="com.ychurinov">
         <level value="DEBUG" />
     </logger>

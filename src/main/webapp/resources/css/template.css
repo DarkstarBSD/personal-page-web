@@ -84,6 +84,7 @@ div.stick div.exit {
     background-image: url("../images/close.png");
     width: 16px;
     height: 16px;
+    margin-left: 3px;
     float: right;
     cursor: pointer;
 }
